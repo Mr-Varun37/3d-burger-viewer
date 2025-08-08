@@ -13,29 +13,40 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      padding: 0;
     }
+
     model-viewer {
       width: 90vw;
       height: 90vh;
-      background: black;
+      background: #000;
       border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-      z-index: 9999;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Extra mobile optimization */
+    @media (max-width: 768px) {
+      model-viewer {
+        width: 100vw;
+        height: 80vh;
+        border-radius: 0;
+      }
     }
   </style>
 </head>
 <body>
   <model-viewer
-  src="burger_model.glb"
-  alt="3D Burger"
-  auto-rotate
-  camera-controls
-  exposure="1"
-  shadow-intensity="1"
-  environment-image="neutral"
-  ar
->
-</model-viewer>
-
+    src="burger_model.glb"
+    alt="3D Burger"
+    auto-rotate
+    camera-controls
+    min-camera-orbit="auto auto 0.5m"
+    max-camera-orbit="auto auto 2m"
+    shadow-intensity="1"
+    exposure="1"
+    environment-image="neutral"
+    ar
+  >
+  </model-viewer>
 </body>
 </html>
